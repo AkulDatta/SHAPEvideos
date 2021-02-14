@@ -118,6 +118,7 @@ if __name__ == "__main__":
                         volume -= 1
                     if(fingers >= 5):
                         print("RAISED HAND")
+                        isHandRaised = True
                     same_frames = 0 
                 fingers_old = fingers
                 cv2.imshow("ROI", thresholded)
