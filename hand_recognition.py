@@ -125,10 +125,10 @@ if __name__ == "__main__":
 
 
         if(not isMuted):
-            cv2.putText(clone, "M", (30, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
-        cv2.putText(clone, str(volume), (90, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
+            cv2.putText(clone, "M", (30, 450), cv2.FONT_HERSHEY_SIMPLEX, 4, (0,0,255), 2)
+        cv2.putText(clone, str(volume), (150, 450), cv2.FONT_HERSHEY_SIMPLEX, 4, (0,0,255), 2)
         if(isHandRaised):
-            cv2.putText(clone, "R", (150, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
+            cv2.putText(clone, "R", (280, 450), cv2.FONT_HERSHEY_SIMPLEX, 4, (0,0,255), 2)
         cv2.rectangle(clone, (left, top), (right, bottom), (0,255,0), 2)
         num_frames += 1
         cv2.imshow("Video Feed", clone)

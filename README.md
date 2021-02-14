@@ -1,4 +1,4 @@
-Simple Human Action Platform Extension (S.H.A.P.E.) for Videos - Recognizing Hand Gestures with Novel Video Call Applications using OpenCV and Python.
+Simple Human Action Processing Engine (S.H.A.P.E.) for Videos - Recognizing Hand Gestures with Novel Video Call Applications using OpenCV and Python.
 
 How to run the program:
 
