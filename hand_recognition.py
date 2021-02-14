@@ -70,6 +70,8 @@ if __name__ == "__main__":
     fingers_old = 0
     same_frames = 0
     isMuted = True
+    volume = 5
+    isHandRaised = False 
 
 
     while(True):
@@ -98,30 +100,34 @@ if __name__ == "__main__":
                 
                 fingers = count(thresholded, segmented)
                 if(fingers == fingers_old):
-                    print(same_frames)
                     same_frames += 1
                 else:
                     same_frames = 0
-                if(same_frames >= 40):
+                if(same_frames >= 25):
                     if(fingers == 1):
-                        if(isMuted):
-                            print("UNMUTED") 
-                            cv2.putText(clone, str(fingers), (70, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
-                        else:
-                            print("MUTED") 
+                        print("UNMUTED") 
+                        isMuted = False
                     if(fingers == 2):
-                        print("") 
+                        print("MUTED")
+                        isMuted = True 
                     if(fingers == 3):
                         print("VOLUME UP") 
+                        volume += 1
                     if(fingers == 4):
                         print("VOLUME DOWN") 
+                        volume -= 1
                     if(fingers >= 5):
                         print("RAISED HAND")
                     same_frames = 0 
                 fingers_old = fingers
-                cv2.putText(clone, str(fingers), (70, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
                 cv2.imshow("ROI", thresholded)
 
+
+        if(not isMuted):
+            cv2.putText(clone, "M", (30, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
+        cv2.putText(clone, str(volume), (90, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
+        if(isHandRaised):
+            cv2.putText(clone, "R", (150, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
         cv2.rectangle(clone, (left, top), (right, bottom), (0,255,0), 2)
         num_frames += 1
         cv2.imshow("Video Feed", clone)
