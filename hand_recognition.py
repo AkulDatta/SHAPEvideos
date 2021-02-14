@@ -105,10 +105,10 @@ if __name__ == "__main__":
                     same_frames = 0
                 if(same_frames >= 25):
                     if(fingers == 1):
-                        print("UNMUTED") 
+                        print("MUTED") 
                         isMuted = False
                     if(fingers == 2):
-                        print("MUTED")
+                        print("UNMUTED")
                         isMuted = True 
                     if(fingers == 3):
                         print("VOLUME UP") 
